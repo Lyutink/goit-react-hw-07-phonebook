@@ -20,11 +20,11 @@ const validationSchema = Yup.object({
     .required("Please enter your phone number, it is required"),
 });
 ///////////////////////////////////
-export default function ContactForm({ onSubmit }) {
+export default function ContactForm({ onSubmit, adding }) {
   return (
     <Formik
       enableReinitialize
-      initialValues={{ name: "", number: "" }}
+      initialValues={{ name: "", phone: "" }}
       validationSchema={validationSchema}
       onSubmit={(values,{ resetForm}) => {
         onSubmit(values);
@@ -37,11 +37,13 @@ export default function ContactForm({ onSubmit }) {
           <Field type="text" name="name" />
           <ErrorMessage name="name" />
 
-          <LabelForm htmlFor="name">Number</LabelForm>
-          <Field type="tel" name="number" />
-          <ErrorMessage name="number" />
+          <LabelForm htmlFor="phone">Phone</LabelForm>
+          <Field type="tel" name="phone" />
+          <ErrorMessage name="phone" />
 
-          <BtnForm type="submit">Add contact</BtnForm>
+          <BtnForm type="submit">
+            {adding ? "Adding..." : "Add contact"}
+          </BtnForm>
         </ContainerForm>
       </Form>
     </Formik>

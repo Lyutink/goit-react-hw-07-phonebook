@@ -12,7 +12,19 @@ export const ContactItem = styled.li`
   font-weight: 400;
 `;
 
- export const BtnDelete = styled.button`
+export const ContactName = styled.span`
+  margin-right: 10px;
+  font-size: 30px;
+  font-weight: 500;
+`;
+
+export const ContactNumber = styled.span`
+  margin-right: 10px;
+  font-size: 30px;
+  font-weight: 500;
+`;
+
+export const BtnDelete = styled.button`
   margin-left: 8px;
   border-radius: 5px;
 
